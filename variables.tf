@@ -25,14 +25,14 @@ EOT
     name                       = string
     dynamic_throttling_enabled = optional(bool)
     rai_policy_name            = optional(string)
-    version_upgrade_option     = optional(string, "OnceNewDefaultVersionAvailable")
+    version_upgrade_option     = optional(string) # Default: "OnceNewDefaultVersionAvailable"
     model = object({
       format  = string
       name    = string
       version = optional(string)
     })
     sku = object({
-      capacity = optional(number, 1)
+      capacity = optional(number) # Default: 1
       family   = optional(string)
       name     = string
       size     = optional(string)
