@@ -1,3 +1,7 @@
+output "cognitive_deployments_id" {
+  description = "Map of id values across all cognitive_deployments, keyed the same as var.cognitive_deployments"
+  value       = { for k, v in azurerm_cognitive_deployment.cognitive_deployments : k => v.id }
+}
 output "cognitive_deployments_cognitive_account_id" {
   description = "Map of cognitive_account_id values across all cognitive_deployments, keyed the same as var.cognitive_deployments"
   value       = { for k, v in azurerm_cognitive_deployment.cognitive_deployments : k => v.cognitive_account_id }
