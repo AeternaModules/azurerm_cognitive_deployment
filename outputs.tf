@@ -12,7 +12,7 @@ output "cognitive_deployments_dynamic_throttling_enabled" {
 }
 output "cognitive_deployments_model" {
   description = "Map of model values across all cognitive_deployments, keyed the same as var.cognitive_deployments"
-  value       = { for k, v in azurerm_cognitive_deployment.cognitive_deployments : k => v.model if v.model != null && length(v.model) > 0 }
+  value       = { for k, v in azurerm_cognitive_deployment.cognitive_deployments : k => one(v.model) if v.model != null && length(v.model) > 0 }
 }
 output "cognitive_deployments_name" {
   description = "Map of name values across all cognitive_deployments, keyed the same as var.cognitive_deployments"
@@ -24,7 +24,7 @@ output "cognitive_deployments_rai_policy_name" {
 }
 output "cognitive_deployments_sku" {
   description = "Map of sku values across all cognitive_deployments, keyed the same as var.cognitive_deployments"
-  value       = { for k, v in azurerm_cognitive_deployment.cognitive_deployments : k => v.sku if v.sku != null && length(v.sku) > 0 }
+  value       = { for k, v in azurerm_cognitive_deployment.cognitive_deployments : k => one(v.sku) if v.sku != null && length(v.sku) > 0 }
 }
 output "cognitive_deployments_version_upgrade_option" {
   description = "Map of version_upgrade_option values across all cognitive_deployments, keyed the same as var.cognitive_deployments"
